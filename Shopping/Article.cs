@@ -33,7 +33,19 @@
             }
             set
             {
-                throw new NotImplementedException();
+                if (!value.Contains(' '))
+                {
+                    throw new TooShortDescriptionException();
+                }
+                else if (value.Length > 50) { 
+                    {
+                        throw new TooLongDescriptionException();
+                    }
+                }
+                else
+                {
+                    _description = value;
+                }
             }
         }
 
