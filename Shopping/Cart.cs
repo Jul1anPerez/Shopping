@@ -12,7 +12,7 @@ namespace Shopping
         #region public methods
         public void Add(List<CartItem> cartItems)
         {
-            throw new NotImplementedException();
+            _cartItems = cartItems;
         }
 
         public void Remove(List<CartItem> cartItemsToRemove)
@@ -24,7 +24,7 @@ namespace Shopping
         {
             get
             {
-                throw new NotImplementedException();
+                return _cartItems;
             }
         }
 
@@ -32,7 +32,12 @@ namespace Shopping
         {
             get
             {
-                throw new NotImplementedException();
+                float currentCartPrice = 0f;
+                foreach (var item in _cartItems)
+                {
+                    currentCartPrice += item.Article.Price * item.Quantity;
+                }
+                return currentCartPrice;
             }
         }
         #endregion public methods
